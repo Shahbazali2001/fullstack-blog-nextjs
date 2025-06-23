@@ -45,9 +45,20 @@ function RegisterForm() {
     },
   });
 
+
+  const formSubmit = async (values: RegisterFromValue) => {
+    setIsLoading(true);
+    try {
+      console.log(values);
+    } catch (error) {
+      console.log(error);
+    }
+    setIsLoading(false);
+  };
+
   return (
     <Form {...form}>
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={form.handleSubmit(formSubmit)}>
         <FormField
           control={form.control}
           name="name"
@@ -124,7 +135,9 @@ function RegisterForm() {
           )}
         />
 
-        <Button type="submit" className="w-full" disabled={isLoading}>Get Started</Button>
+        <Button type="submit" className="w-full" disabled={isLoading}>
+            {isLoading ? 'Creating...' : 'Create Account'}
+        </Button>
       </form>
     </Form>
   );
