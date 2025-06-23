@@ -1,8 +1,8 @@
+import AuthLayout from "./auth-layout";
+
 function AuthPage() {
     return ( 
-        <div>
-            <h1>Auth Page - Login or Register</h1>
-        </div>
+        <AuthLayout/>
      );
 }
 
