@@ -3,7 +3,12 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 
+
 function Header() {
+
+  
+
+
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Create", href: "/post/create" },
@@ -39,10 +44,8 @@ function Header() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant={'ghost'} asChild>
-              <Link href="/auth">
-                LogIn
-              </Link>
+            <Button variant={'default'} asChild className="cursor-pointer" >
+              <Link href="/auth">Login</Link>
             </Button>
           </div>
 
