@@ -35,9 +35,20 @@ function LoginForm() {
     },
   });
 
+  const formSubmit = async (values: LoginFormValues) => {
+    setIsLoading(true);
+    try {
+      console.log(values);
+    } catch (error) {
+      console.log(error);
+    }
+    setIsLoading(false);
+  };
+  
+
   return (
     <Form {...form}>
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={form.handleSubmit(formSubmit)}>
     
         <FormField
           control={form.control}
@@ -74,7 +85,9 @@ function LoginForm() {
 
           )}
         />
-        <Button type="submit" className="w-full" disabled={isLoading}>LogIn</Button>
+        <Button type="submit" className="w-full" disabled={isLoading}>
+             {isLoading ? 'Loading...' : 'Login'}
+        </Button>
       </form>
     </Form>
   );
